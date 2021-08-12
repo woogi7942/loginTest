@@ -18,20 +18,22 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class PageAspect {
-Logger logger =  LoggerFactory.getLogger(PageAspect.class);
-
+//Logger logger =  LoggerFactory.getLogger(PageAspect.class);
+/*
 @Pointcut("execution(* com.example.demo.*.*(..))")
 public void loginauth() {System.out.println("point cut");}
+*/
 
-
-@Before("@annotation(com.example.demo.aop.LoginCheck)")
+//@Before("@annotation(com.example.demo.aop.LoginCheck)")
 public void joinPoint(HttpServletRequest request, HttpServletResponse response) throws Throwable
 {
+	/*
 	System.out.println("execution 실행 전 이것부터 실행");
 	HttpSession session=(HttpSession) request.getSession();
 	if(session.getAttribute("id")==null) {
 		response.sendRedirect("/index");
 	}
+	*/
 }
 
 

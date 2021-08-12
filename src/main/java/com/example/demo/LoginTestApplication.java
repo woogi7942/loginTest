@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,9 +94,11 @@ public class LoginTestApplication {
 	}
 	
 	@RequestMapping("/loginProc")
-	public String loginProc(MemberVO member){
-		
-		return "/WEB-INF/view/login.jsp";
+	public String loginProc(MemberVO member,HttpSession session){
+		if(service.login(member)) {
+			session.setAttribute("id", member.getId());
+		}
+		return "/WEB-INF/view/loginProc.jsp";
 	}
 	
 	

@@ -24,4 +24,13 @@ MemberDao dao;
 		return dao.insert(member);
 	}
 
+	public boolean login(MemberVO member) {
+		if(dao.loginCheck(member)) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
 }

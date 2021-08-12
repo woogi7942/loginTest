@@ -115,4 +115,14 @@ public class MemberDao {
 		}
 		return list;
 	}
+
+	public boolean loginCheck(MemberVO member) {
+		MemberVO dbmember=read(member.getId());
+		if(dbmember.getId().equals(member.getId())
+				&&dbmember.getPassword().equals(member.getPassword())) {
+		return true;
+		}else {
+		return false;
+		}
+	}
 }
